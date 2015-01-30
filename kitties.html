@@ -1,0 +1,36 @@
+<div id="main" x-ng-controller="KittiesController" class="ng-scope"> <!-- This is where we use the ng-controller directive to bring in the controller we constructed in app.js, KittiesController -->
+
+			<div id="left-container"> 
+				<h1>Kitties for Adoption</h1>
+				<!-- ngRepeat: k in kitties | filter: false --><div class="kitties ng-scope" x-ng-repeat="k in kitties | filter: false"> <!-- Here, we're filtering kitties based on the 'adopted' boolean (looking for 'false'). Only kitties with 'false' present as a value will appear in this column. -->
+					<h2 class="ng-binding">My name is Jack</h2> <!-- Displays the cat's name based on the object in $scope.kitties. -->
+					<p class="ng-binding">I am 4 months old.</p> <!-- Displays the cat's age based on the object in $scope.kitties. -->
+					<p class="ng-binding">I'm a boy.</p> <!-- Displays the cat's gender based on the object in $scope.kitties. -->
+					<img x-ng-src="images/jack.png" src="images/jack.png"> <!-- Displays an image with a path noted in the object in $scope.kitties. -->
+					<p>Adopt? <input type="checkbox" x-ng-model="k.adopted" class="ng-pristine ng-valid"></p> <!-- Allows user to set boolean value of 'adopted' in $scope.kitties[k]. -->
+				</div><!-- end ngRepeat: k in kitties | filter: false --><div class="kitties ng-scope" x-ng-repeat="k in kitties | filter: false"> <!-- Here, we're filtering kitties based on the 'adopted' boolean (looking for 'false'). Only kitties with 'false' present as a value will appear in this column. -->
+					<h2 class="ng-binding">My name is Princess Mew</h2> <!-- Displays the cat's name based on the object in $scope.kitties. -->
+					<p class="ng-binding">I am 3 months old.</p> <!-- Displays the cat's age based on the object in $scope.kitties. -->
+					<p class="ng-binding">I'm a girl.</p> <!-- Displays the cat's gender based on the object in $scope.kitties. -->
+					<img x-ng-src="images/princessmew.png" src="images/princessmew.png"> <!-- Displays an image with a path noted in the object in $scope.kitties. -->
+					<p>Adopt? <input type="checkbox" x-ng-model="k.adopted" class="ng-pristine ng-valid"></p> <!-- Allows user to set boolean value of 'adopted' in $scope.kitties[k]. -->
+				</div><!-- end ngRepeat: k in kitties | filter: false -->
+			</div>
+
+			<div id="right-container">
+				<h1>At their forever homes! &lt;3</h1>
+				<!-- ngRepeat: k in kitties | filter: true --><div class="kitties ng-scope" x-ng-repeat="k in kitties | filter: true"> <!-- Here, we're filtering kitties based on the 'adopted' boolean (looking for 'true'). Only kitties with 'true' present as a value will appear in this column. -->
+					<h2 class="ng-binding">My name is Karl</h2>
+					<p class="ng-binding">I am 5 months old.</p>
+					<p class="ng-binding">I'm a boy.</p>
+					<img x-ng-src="images/carl.png" src="images/carl.png">
+					<p>Send back to the pound by un-checking this! <input type="checkbox" x-ng-model="k.adopted" class="ng-pristine ng-valid"></p>
+				</div><!-- end ngRepeat: k in kitties | filter: true --><div class="kitties ng-scope" x-ng-repeat="k in kitties | filter: true"> <!-- Here, we're filtering kitties based on the 'adopted' boolean (looking for 'true'). Only kitties with 'true' present as a value will appear in this column. -->
+					<h2 class="ng-binding">My name is Oscar</h2>
+					<p class="ng-binding">I am 2 months old.</p>
+					<p class="ng-binding">I'm a boy.</p>
+					<img x-ng-src="images/oscar.png" src="images/oscar.png">
+					<p>Send back to the pound by un-checking this! <input type="checkbox" x-ng-model="k.adopted" class="ng-pristine ng-valid"></p>
+				</div><!-- end ngRepeat: k in kitties | filter: true -->
+			</div>
+		</div>

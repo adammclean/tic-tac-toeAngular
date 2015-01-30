@@ -1,0 +1,90 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<div id = "board"></div>
+
+<script type="text/javascript">
+//Declare variables for our board, players, turn, and game.
+
+var board = getElementById('board');
+var player1 = true;
+var turn = 1;
+var gameOver = false;
+
+//Declare while loop for gameOver - which will increment our turn counter until a. someone wins or b. we run out of game squares.
+
+while (gameOver == false || turn < 10){
+	turn++;
+
+//Create our turn switching function.
+
+if (turn % 2 == 0){
+	player1 == false;
+};
+
+//Create our table divs. Do I need to write: var divGen = document.createElement('div) and then the for loop?
+var divGen = function(){ 
+	for(i=0;i<9;i++){
+		document.createElement('div');
+		divGen.innerHTML = '&nbsp';
+		divGen.class = 'squares';
+		board.appendChild(divgen);
+	}
+};
+
+
+//Add dynamic click functionality to our boardSquares - the function will be - if player1==true then a click places an 'x;'' if not the click places an '0.' We will be using this.classList.add(). Remember the format for if statements - if(){}. Also remember clickSquare[i] is going to get you the divs themselves - while clickSquare without the [i] is the containing object. 
+
+// I have a tendency to want to say var clickSquare = function(){} and nest document.querySelectorAll etc. within the function curly. Would I be compromising scope if we nest inside the function as opposed to simply stating var clickSquare = document.querySelectorAll at the top?
+
+var clickSquare = document.querySelectorAll('squares'); 
+
+	for(i=0;i<squares.length;i++){
+		clickSquare[i].addEventListener('click', function(){
+			if (player1 == true){
+				this.classList.add('a');
+			}
+			else {
+				this.classList.add('b');
+			}
+		})
+	};
+
+//Now for our win condition - we need to tell the program what the winning combinations are - then have our program 'check' these by iterating through each one. We need to make sure it is a single player who is triggering the win condition using .state==.state==.state?. Finally, if the win condition is met we need to change our gameOver var to true; ending our loop and in turn our game.
+
+var winConditions = [
+	new Array(0,1,2),
+	new Array(0,4,8),
+	new Array(0,3,6),
+	new Array(1,4,7),
+	new Array(2,4,6),
+	new Array(2,5,8),
+	new Array(3,4,5),
+	new Array(6,7,8),
+];
+
+var conditionChecker = function(){
+	for(i=0;i<winConditions.length;i++){
+		firstSquareCheck = winConditions[i][0];
+		secondSquareCheck = winConditions[i][1];
+		thirdSquareCheck = winConditions[i][2];
+
+		if(squares[firstSquareCheck].state==squares[secondSquareCheck].state){
+			if(squares[secondSquareCheck].state==squares[thirdSquareCheck].state){
+				if(squares[thirdSquareCheck].state!=BLANK){
+					var gameOver==true;
+					console.log("We have a winner!");
+				}
+			}
+		}
+	}
+};
+
+//Create a game AI by adding an array of 'values' to the different squares.
+
+}; //end of while loop - do I need to wrap entire script in this?
+</script>
+</body>
+</html>

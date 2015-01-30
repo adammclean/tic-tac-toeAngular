@@ -1,0 +1,30 @@
+#container{
+       width: 640px;
+       height: 640px;
+       margin: auto;
+       margin-top: 30px;
+     }
+     .square{
+       width: 200px;
+       height: 200px;
+       border: 2px solid teal;
+       display: inline-block;
+     }
+     .xSelected{
+       background: url(xChip.jpg);
+       background-size: 200px 200px;
+       background-repeat: no-repeat;
+     }
+     .oSelected{
+       background: url(oAces.jpg);
+       background-size: 200px 200px;
+       background-repeat: no-repeat;
+     }
+     h1 {
+       text-align: center;
+       font-size: 100px;
+       font-color: blue;
+     }
+
+    
+     
