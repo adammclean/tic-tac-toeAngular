@@ -46,6 +46,7 @@ $scope.playerMove = function(idx){
   }
 
   //Add event handlers to every square for mouseover, mouseout, click
+  //Can I use boardSquares here or do I need to use the numSquares object (which is boardSquares.length?)
   boardSquares[i].addEventListener('mouseover', eventHandlerMouseOver);
   boardSquares[i].addEventListener('mouseout', eventHandlerMouseOut);
   boardSquares[i].addEventListener('click', eventHandlerMouseDown);
