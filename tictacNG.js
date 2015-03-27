@@ -24,7 +24,12 @@ $scope.board = [
 {val:'', img:''},{val:'', img:''},{val:'', img:''}
 {val:'', img:''},{val:'', img:''},{val:'', img:''}
 
-]
+];
+
+
+  // ******************** Check To See Square is Valid And Push Move to 'x' or 'o' Array **************** 
+
+
 
 $scope.playerMove = function(idx){
   if(($scope.board[idx].val!=='x') && ($scope.board[idx].val!=='o'){ //We check to see if our div is not populated by class 'x' or 'o'
@@ -36,15 +41,45 @@ $scope.playerMove = function(idx){
     
   else{
     $scope.board[idx].val='o';
-    $scope.oMoves.push((idx).to_String()); // What are we converting to_String? - idx - which in this case is val 'o'?
+    $scope.oMoves.push((idx).to_String()); // What and why are we converting to_String? - idx - which in this case is val 'o'?
     console.log($scope.oMoves);
     }
   
-  if($scope.turnNumber >= 4){
+
+
+  // ******************** Check Win Conditions Starting First Winnable Turn (5) ****************  
+
+  if($scope.turnNumber >= 5){
     console.log("Checking win conditions starting turn 5");
     console.log($scope.winningCombos.length);
+    $scope.winner = '';
+
+    if ($scope.turn % 2!==0)
+      console.log("Checking win conditions for 'x'");
+
+      for(var i=0; i<$scope.winningCombos.length; i++){
+        if($scope.xMoves.indexOf($scope.winningCombos[i][0])!== -1) && ($scope.xMoves.indexOf($scope.winningCombos[i][1])!== -1) && ($scope.xMoves.indexOf($scope.winningCombos[i][2])!== -1){
+          console.log('x wins!');  
+          $scope.winner = true;
+        }
+      
+        else{
+
+         console.log("Checking win conditions for 'o'")   
+          ($scope.oMoves.indexOf($scope.winningCombos[i][0])!== -1) && ($scope.oMoves.indexOf($scope.winningCombos[i][1])!== -1) && ($scope.oMoves.indexOf($scope.winningCombos[i][2])!== -1){
+          console.log('o wins!');  
+          $scope.winner = true; 
+    
+
+           
+      }
   }
-  })
+  
+
+
+
+
+  }) //end valid square loop
 }
   
   //Can we place our tie game check in the loop above? Does it matter?
