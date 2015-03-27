@@ -2,9 +2,9 @@ var app = angular.module('ticTacApp', []);
 
 app.controller('ticTacCtrl', function($scope){
 
-$scope.turn = 0;
+$scope.turn = 1;
 $scope.xMoves = [];
-$scope.yMoves = [];
+$scope.oMoves = [];
 $scope.winner = '';
 $scope.gameOver = false;
 $scope.tie = false;
@@ -18,6 +18,14 @@ $scope.winningCombos = [
   ['1','5','9'],['3','5','7']
 ];
 
+$scope.board = [
+
+{val:'', img:''},{val:'', img:''},{val:'', img:''}
+{val:'', img:''},{val:'', img:''},{val:'', img:''}
+{val:'', img:''},{val:'', img:''},{val:'', img:''}
+
+]
+
 $scope.playerMove = function(idx){
   if(($scope.board[idx].val!=='x') && ($scope.board[idx].val!=='o'){ //We check to see if our div is not populated by class 'x' or 'o'
     if($scope.turn % 2!==0){ //The first player move is move '1' - so % 2 should not equal 0;
@@ -27,8 +35,8 @@ $scope.playerMove = function(idx){
     }
     
   else{
-    $scope.board[idx].val='x';
-    $scope.oMoves.push((idx).to_String());
+    $scope.board[idx].val='o';
+    $scope.oMoves.push((idx).to_String()); // What are we converting to_String? - idx - which in this case is val 'o'?
     console.log($scope.oMoves);
     }
   
@@ -47,7 +55,7 @@ $scope.playerMove = function(idx){
 
   //Add event handlers to every square for mouseover, mouseout, click
   //Can I use boardSquares here or do I need to use the numSquares object (which is boardSquares.length?)
-  boardSquares[i].addEventListener('mouseover', eventHandlerMouseOver);
+  boardSquares[i].addEventListener('mouseover', eventHandlerMouseOver); // Is [i] a reserved index call?
   boardSquares[i].addEventListener('mouseout', eventHandlerMouseOut);
   boardSquares[i].addEventListener('click', eventHandlerMouseDown);
 
