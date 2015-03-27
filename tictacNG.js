@@ -87,7 +87,12 @@ $scope.playerMove = function(idx){
     document.getElementById('outcomeDiv').innerHTML="Tie game!";
   }
 
-  //Add event handlers to every square for mouseover, mouseout, click
+
+
+
+// ******************** Add Event Listeners and Event Handlers to board squares **************** 
+
+
   //Can I use boardSquares here or do I need to use the numSquares object (which is boardSquares.length?)
   boardSquares[i].addEventListener('mouseover', eventHandlerMouseOver); // Is [i] a reserved index call?
   boardSquares[i].addEventListener('mouseout', eventHandlerMouseOut);
