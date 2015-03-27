@@ -8,6 +8,8 @@ $scope.yMoves = [];
 $scope.winner = '';
 $scope.gameOver = false;
 $scope.tie = false;
+$scope.boardSquares = document.getElementsByClassName('square'); //from HTML => ng-class={square: true}
+$scope.numSquares = boardSquares.length //Is it necessary to have this iteration of boardSquares or can I delete this object?
 
 $scope.winningCombos = [
   ['1','2','3'],['4','5','6'],
@@ -18,7 +20,7 @@ $scope.winningCombos = [
 
 $scope.playerMove = function(idx){
   if(($scope.board[idx].val!=='x') && ($scope.board[idx].val!=='o'){ //We check to see if our div is not populated by class 'x' or 'o'
-    if($scope.turn%2!==0){ //The first player move is move '1'
+    if($scope.turn % 2!==0){ //The first player move is move '1' - so % 2 should not equal 0;
       $scope.board[idx].val = 'x';
       $scope.xMoves.push((idx).toString()); //What exactly does pushing our [idx] 'look like'; an 'x'?
       console.log($scope.xMoves);
@@ -43,6 +45,10 @@ $scope.playerMove = function(idx){
     document.getElementById('outcomeDiv').innerHTML="Tie game!";
   }
 
+  //Add event handlers to every square for mouseover, mouseout, click
+  boardSquares[i].addEventListener('mouseover', eventHandlerMouseOver);
+  boardSquares[i].addEventListener('mouseout', eventHandlerMouseOut);
+  boardSquares[i].addEventListener('click', eventHandlerMouseDown);
 
 
 });
