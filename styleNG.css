@@ -2,6 +2,12 @@ html body {
   background-color: #333;
 }
 
+#title {
+  font-family: 'Luckiest Guy', cursive;
+  color: #fff;
+  margin-bottom: 50px;
+}
+
 .cell {
   border: 1px solid orange;
   display: inline-block;

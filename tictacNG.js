@@ -24,8 +24,8 @@ $scope.board = [ // square in board track by $index
 
 ];
 
-$scope.xImg = http://calligraphyalphabet.org/letter-x/runic-calligraphy-alphabet-x.jpg
-$scope.oImg = https://wishfulinking.files.wordpress.com/2010/09/shinichi-maruyama-02121.jpg
+// $scope.xImg = http: "//calligraphyalphabet.org/letter-x/runic-calligraphy-alphabet-x.jpg"
+// $scope.oImg = https: "//wishfulinking.files.wordpress.com/2010/09/shinichi-maruyama-02121.jpg"
 
 
 // ******************** Check To See Square is Valid And Push Move to 'x' or 'o' Array **************** 
