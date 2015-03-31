@@ -1,3 +1,7 @@
+html body {
+  background-color: #333;
+}
+
 .cell {
   border: 1px solid orange;
   display: inline-block;
@@ -12,10 +16,6 @@
   height: 465px;
 }
 
-.board {
-  
-}
-
 .square {
   width: 150px;
   height: 150px;
@@ -23,7 +23,7 @@
   border-radius: 15px;
   font-size: 30px;
   color: black;
-  background-color: #33CCFF;
+  background-color: #FFF;
   margin: 1px;
 }
 
