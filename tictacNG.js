@@ -70,10 +70,10 @@ $scope.playerMove = function(idx){
     
     else{
 
-       console.log("Checking win conditions for 'o'");
+      console.log("Checking win conditions for 'o'");
         
-        for(var i=0; i<winningCombos.length; i++){
-          if(($scope.oMoves.indexOf($scope.winningCombos[i][0]) != -1) && ($scope.oMoves.indexOf($scope.winningCombos[i][1]) != -1) && ($scope.oMoves.indexOf($scope.winningCombos[i][2]) != -1)){
+      for(var i=0; i<winningCombos.length; i++){
+        if(($scope.oMoves.indexOf($scope.winningCombos[i][0]) != -1) && ($scope.oMoves.indexOf($scope.winningCombos[i][1]) != -1) && ($scope.oMoves.indexOf($scope.winningCombos[i][2]) != -1)){
           console.log('o wins!');
           $scope.winner = true;
         }
@@ -85,9 +85,11 @@ $scope.playerMove = function(idx){
 // ******************** Check For Tie Game Starting Turn 8 **************** 
 
 
-  if(turn == 8 && gameOver === false){
-    document.getElementById('outcomeDiv').innerHTML="Tie game!";
+    if(turn >= 8 && gameOver === false){
+      document.getElementById('outcomeDiv').innerHTML="Tie game!";
+    }
   }
+}
 });
 
 // ******************** Add Event Listeners and Event Handlers to board squares **************** 
