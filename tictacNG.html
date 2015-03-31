@@ -12,16 +12,20 @@
 
 <div id="main">
 	<div ng-controller="ticTacCtrl">
-		<div id = outcomeDiv ng-show = 'tie'>
+		<!-- <div id = outcomeDiv ng-show = 'tie'>
 			{{winner}}
-		</div>
-		<!-- Dynamically create our boardsquares using Angular 'square in board track by $index' -->
-		<!-- Ng-class = {square:true} => gives our generated board squares the 'square' class -->
+		</div> -->
+		
+
 		<div id="container">
+			
 			<div ng-repeat="square in board track by $index"
 			     ng-class="{square: true, xSelected:square.val=='x', oSelected:square.val=='o'}"
 			     ng-click="playerMove(idx)"> 
-			<img class = 'square' ng-src = '{{ square.img }}'
+			
+			{{square}}
+
+			<!-- <img class = 'square' ng-src = '{{ square.img }}' -->
 			</div>
 		</div>
 	</div>

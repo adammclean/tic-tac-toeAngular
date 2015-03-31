@@ -18,7 +18,7 @@ $scope.winningCombos = [
   ['1','5','9'],['3','5','7']
 ];
 
-$scope.board = [
+$scope.board = [ // square in board track by $index
 
 {val:'', img:''},{val:'', img:''},{val:'', img:''},
 {val:'', img:''},{val:'', img:''},{val:'', img:''},
@@ -29,21 +29,22 @@ $scope.board = [
 
 // ******************** Check To See Square is Valid And Push Move to 'x' or 'o' Array **************** 
 
-
-
 $scope.playerMove = function(idx){
-  if(($scope.board[idx].val!=='x') && ($scope.board[idx].val!=='o'){ //We check to see if our div is not populated by class 'x' or 'o'
-    if($scope.turn % 2!==0){ //The first player move is move '1' - so % 2 should not equal 0;
-      $scope.board[idx].val = 'x';
-      $scope.xMoves.push((idx).toString()); //What exactly does pushing our [idx] 'look like'; an 'x'?
-      console.log($scope.xMoves);
-    }
+  if(($scope.board[idx].val == 'x') || ($scope.board[idx].val == 'o'))
+    return;
+
+  if(($scope.turn % 2) !== 0){
+    $scope.board[idx].val = 'x';
+    $scope.xMoves.push(idx.toString()); //What exactly does pushing our [idx] 'look like'; an 'x'?
+    console.log($scope.xMoves);
+  }
     
   else{
     $scope.board[idx].val='o';
-    $scope.oMoves.push((idx).to_String()); // What and why are we converting to_String? - idx - which in this case is val 'o'?
+    $scope.oMoves.push(idx.toString()); // What and why are we converting to_String? - idx - which in this case is val 'o'?
     console.log($scope.oMoves);
-    }
+  }
+
   
 
   // ******************** Check Win Conditions Starting First Winnable Turn (5) ****************  
@@ -53,50 +54,47 @@ $scope.playerMove = function(idx){
     console.log($scope.winningCombos.length);
     $scope.winner = '';
 
-    if ($scope.turn % 2!==0)
+    if (($scope.turn % 2) !== 0){
       console.log("Checking win conditions for 'x'");
-
+    
       
       // .indexOf() returns -1 if the value searched for is absent; so we are confirming the winningCombo 'ingredients' are present
 
       for(var i=0; i<$scope.winningCombos.length; i++){
-        if($scope.xMoves.indexOf($scope.winningCombos[i][0])!== -1) && ($scope.xMoves.indexOf($scope.winningCombos[i][1])!== -1) && ($scope.xMoves.indexOf($scope.winningCombos[i][2])!== -1){
-          console.log('x wins!');  
+        if(($scope.xMoves.indexOf($scope.winningCombos[i][0]) != -1) && ($scope.xMoves.indexOf($scope.winningCombos[i][1]) != -1) && ($scope.xMoves.indexOf($scope.winningCombos[i][2]) != -1)){
+          console.log('x wins!');
           $scope.winner = true;
         }
-      
-        else{
+      }
+    }
+    
+    else{
 
-         console.log("Checking win conditions for 'o'")   
-          
-          for(var i=0; i<winningCombos.length; i++){
-            ($scope.oMoves.indexOf($scope.winningCombos[i][0])!== -1) && ($scope.oMoves.indexOf($scope.winningCombos[i][1])!== -1) && ($scope.oMoves.indexOf($scope.winningCombos[i][2])!== -1){
-            console.log('o wins!');  
-            $scope.winner = true; 
-            }
-          }
-        }) //end valid square loop
-}
+       console.log("Checking win conditions for 'o'");
+        
+        for(var i=0; i<winningCombos.length; i++){
+          if(($scope.oMoves.indexOf($scope.winningCombos[i][0]) != -1) && ($scope.oMoves.indexOf($scope.winningCombos[i][1]) != -1) && ($scope.oMoves.indexOf($scope.winningCombos[i][2]) != -1)){
+          console.log('o wins!');
+          $scope.winner = true;
+        }
+      }
+    }
   
 
 
 // ******************** Check For Tie Game Starting Turn 8 **************** 
 
 
-  if(turn == 8 && gameOver=false){
+  if(turn == 8 && gameOver === false){
     document.getElementById('outcomeDiv').innerHTML="Tie game!";
   }
-
-
-
+});
 
 // ******************** Add Event Listeners and Event Handlers to board squares **************** 
 
 
-  //Can I use boardSquares here or do I need to use the numSquares object (which is boardSquares.length?)
-  boardSquares[i].addEventListener('mouseover', eventHandlerMouseOver); // Is [i] a reserved index call?
-  boardSquares[i].addEventListener('mouseout', eventHandlerMouseOut);
-  boardSquares[i].addEventListener('click', eventHandlerMouseDown);
+  // //Can I use boardSquares here or do I need to use the numSquares object (which is boardSquares.length?)
+  // boardSquares[i].addEventListener('mouseover', eventHandlerMouseOver); // Is [i] a reserved index call?
+  // boardSquares[i].addEventListener('mouseout', eventHandlerMouseOut);
+  // boardSquares[i].addEventListener('click', eventHandlerMouseDown);
 
-
-});
