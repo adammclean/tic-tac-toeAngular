@@ -18,7 +18,7 @@ $scope.winningCombos = [
 
 $scope.board = [ // square in board track by $index
 
-  {val:'TEST', img:''},{val:'', img:''},{val:'', img:''},
+  {val:'', img:''},{val:'', img:''},{val:'', img:''},
   {val:'', img:''},{val:'', img:''},{val:'', img:''},
   {val:'', img:''},{val:'', img:''},{val:'', img:''}
 
