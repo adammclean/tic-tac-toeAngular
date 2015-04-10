@@ -24,8 +24,6 @@ $scope.board = [ // square in board track by $index
 
 ];
 
-// $scope.xImg = http: "//calligraphyalphabet.org/letter-x/runic-calligraphy-alphabet-x.jpg"
-// $scope.oImg = https: "//wishfulinking.files.wordpress.com/2010/09/shinichi-maruyama-02121.jpg"
 
 
 // ******************** Check To See Square is Valid And Push Move to 'x' or 'o' Array **************** 
@@ -36,7 +34,7 @@ $scope.playerMove = function(idx){
 
   if(($scope.turn % 2) !== 0){
     $scope.board[idx].val = 'x';
-    $scope.xMoves.push(idx); //What exactly does pushing our [idx] 'look like'; an 'x'?
+    $scope.xMoves.push(idx);
     console.log($scope.xMoves);
   }
     
@@ -46,7 +44,6 @@ $scope.playerMove = function(idx){
     console.log($scope.oMoves);
   }
 
-  
 
   // ******************** Check Win Conditions Starting First Winnable Turn (5) ****************  
 
@@ -92,7 +89,8 @@ $scope.playerMove = function(idx){
   }
   $scope.turn++; //Within playerMove function
 }
-});
+)};
+);
 
 // ******************** Add Event Listeners and Event Handlers to board squares **************** 
 

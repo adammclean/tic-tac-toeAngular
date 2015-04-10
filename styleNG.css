@@ -2,11 +2,11 @@ html body {
   background-color: #fff;
 }
 
-.xSelected = {
+.xSelected {
   background: url('./assets/unicorn.png');
 }
 
-.ySelected = {
+.ySelected {
   background: url('./assets/mammoth.png');
 }
 
