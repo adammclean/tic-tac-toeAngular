@@ -1,33 +1,19 @@
 html body {
   background-color: #fff;
-}
-
-.xSelected {
-  background: url('./assets/unicorn.png');
-}
-
-.ySelected {
-  background: url('./assets/mammoth.png');
+  position: relative;
 }
 
 #title {
-  font-family: 'Luckiest Guy', cursive;
-  color: black;
-  margin-bottom: 100px;
-}
-
-.cell {
-  border: 1px solid orange;
-  display: inline-block;
-}
-
-.selected {
-  background-color: lightgray;
+  font-size: 100px;
+  text-align: center;
 }
 
 #container {
   width: 465px;
   height: 465px;
+  border: 1px solid black;
+  margin: 0 auto;
+  position: relative;
 }
 
 .square {
@@ -42,17 +28,6 @@ html body {
   margin: 1px;
 }
 
-#main #container{
-  margin: 0px auto;
-}
-h1 {
-  text-align: center;
-}
-
-.img {
-
-}
-
-h1 {
-  color: #fff;
+.board {
+  background-color: #fff;
 }

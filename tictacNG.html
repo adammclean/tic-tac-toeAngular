@@ -28,7 +28,7 @@
 
 
 <div id = 'title'>
-<h1>Tic Tac Toe</h1>
+<p>Tic Tac Toe<p>
 </div>
 
 <div id="main">
@@ -38,12 +38,11 @@
 		<div id="container">
 			
 			<div ng-repeat="square in board track by $index"
-			     ng-class="{square: true, xSelected:square.val=='x', oSelected:square.val=='o'}"
-			     ng-click="playerMove($index)"> 
+			     ng-class="{square: true}"
+			     ng-click="playerMove($index)"
+			     ng-mouseover='nbsp'> 
 			
-			{{square}}
-
-			<!-- <img class = 'square' ng-src = '{{ square.img }}' -->
+					
 			</div>
 		</div>
 	</div>
