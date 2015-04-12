@@ -19,7 +19,7 @@ $scope.winningCombos = [
 
 $scope.board = [
 
-{},{},{},
+{pieceImg:''},{},{},
 {},{},{},
 {},{},{}
 
@@ -47,5 +47,7 @@ $scope.playerMove = function(idx){
 	$scope.turn ++;
 
 };
+
+
 
 });
