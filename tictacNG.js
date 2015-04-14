@@ -19,9 +19,9 @@ $scope.winningCombos = [
 
 $scope.board = [
 
-{pieceImg:''},{},{},
-{},{},{},
-{},{},{}
+{val: '', choice: ''},{val: '', choice: ''},{val: '', choice: ''},
+{val: '', choice: ''},{val: '', choice: ''},{val: '', choice: ''},
+{val: '', choice: ''},{val: '', choice: ''},{val: '', choice: ''}
 
 ];
 
@@ -31,22 +31,25 @@ $scope.playerMove = function(idx){
 	}
 
 	if($scope.turn % 2 !== 0){
-	 	$scope.board[idx].val = 'x';
-	 	$scope.board[idx].pieceImg = '/assets/mammoth.png'
+	 	// $scope.board[idx].choice = 'x';
+	 	$scope.val = 'x';
+	 	$scope.board[idx].choice = 'assets/mammoth.png';
 	 	$scope.xMoves.push(idx);
-	 	console.log($scope.xMoves)
+	 	console.log($scope.xMoves);
 	 } 	
 	 
 	 else{
-	 	$scope.board[idx].val = 'o';
-	 	$scope.board[idx].pieceImg = '/assets/unicorn.png'
+    // $scope.board[idx].choice = 'o';
+    $scope.val = 'o';
+    $scope.board[idx].choice = 'assets/unicorn.png';
 	 	$scope.oMoves.push(idx);
-	 	console.log($scope.oMoves)	
+	 	console.log($scope.oMoves);
 	};
 
 	$scope.turn ++;
 
 };
+
 
 
 

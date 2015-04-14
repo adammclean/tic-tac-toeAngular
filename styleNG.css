@@ -22,12 +22,26 @@ html body {
   display: inline-block;
   border-radius: 15px;
   border: 10px solid black;
-  font-size: 30px;
+  font-size: 100px;
   color: black;
   background-color: #FFF;
   margin: 1px;
+  vertical-align: middle;
+  padding: 0 0 75px 40px;
+
+
 }
 
 .board {
   background-color: #fff;
 }
+
+#title p {
+ font-family: 'Roboto', sans-serif;
+}
+
+.playerImg {
+  width: 100px;
+  height: 100px;
+}
+

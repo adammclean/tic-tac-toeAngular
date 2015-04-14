@@ -7,8 +7,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
 	
 	 <!-- jQuery --> 
-	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
 	<!-- Javascript --> 
 	<script src="tictacNG.js"></script>
@@ -18,7 +17,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 	
 	<!-- Google Fonts --> 
-	<link href='http://fonts.googleapis.com/css?family=Luckiest+Guy' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 
 	<title>T/T/T</title>
 </head>
@@ -28,7 +27,7 @@
 
 
 <div id = 'title'>
-<p>Tic Tac Toe<p>
+<p>Tic Tac Toe</p>
 </div>
 
 <div id="main">
@@ -39,8 +38,10 @@
 			
 			<div ng-repeat="square in board track by $index"
 			     ng-class="{square: true}"
-			     ng-click="playerMove($index)"
-			     ng-mouseover='nbsp'> 
+			     ng-click="playerMove($index)">
+
+			 <img class='playerImg' ng-src='{{square.choice}}'/>
+
 			
 					
 			</div>
