@@ -30,28 +30,23 @@ $scope.playerMove = function(idx){
 		return;
 	}
 
-	if($scope.turn % 2 !== 0){
-	 	// $scope.board[idx].choice = 'x';
-	 	$scope.val = 'x';
-	 	$scope.board[idx].choice = 'assets/mammoth.png';
-	 	$scope.xMoves.push(idx);
-	 	console.log($scope.xMoves);
-	 } 	
-	 
-	 else{
-    // $scope.board[idx].choice = 'o';
-    $scope.val = 'o';
-    $scope.board[idx].choice = 'assets/unicorn.png';
-	 	$scope.oMoves.push(idx);
-	 	console.log($scope.oMoves);
-	};
+if($scope.turn % 2 !== 0){
+	// $scope.board[idx].choice = 'x';
+	$scope.val = 'x';
+	$scope.board[idx].choice = 'assets/mammoth.png';
+	$scope.xMoves.push(idx);
+	console.log($scope.xMoves);
+}
+ 
+ else{
+  // $scope.board[idx].choice = 'o';
+  $scope.val = 'o';
+  $scope.board[idx].choice = 'assets/unicorn.png';
+  $scope.oMoves.push(idx);
+ 	console.log($scope.oMoves);
+}
 
-	$scope.turn ++;
+$scope.turn ++;
 
 };
-
-
-
-
-
 });
