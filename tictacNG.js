@@ -53,4 +53,5 @@ $scope.playerMove = function(idx){
 
 
 
+
 });
