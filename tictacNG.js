@@ -1,20 +1,19 @@
-var app = angular.module('ticTacApp', []);
+var app = angular.module('ticTacApp', ['firebase']);
 
-app.controller('ticTacCtrl', function($scope){
+app.controller('ticTacCtrl', function($scope, $firebase){
 
+var ref = new Firebase('https:// .firebaseio.com/')
 $scope.turn = 1;
 $scope.xMoves = [];
 $scope.oMoves = [];
 $scope.winner = '';
 $scope.gameOver = false;
 $scope.tie = false;
+$scope.winner = '';
 
 
 $scope.winningCombos = [
-  ['1','2','3'],['4','5','6'],
-  ['7','8','9'],['1','4','7'],
-  ['2','5','8'],['3','6','9'],
-  ['1','5','9'],['3','5','7']
+  ['0','3','6'],
 ];
 
 $scope.board = [
@@ -46,7 +45,36 @@ if($scope.turn % 2 !== 0){
  	console.log($scope.oMoves);
 }
 
-$scope.turn ++;
+// ***********************Check win conditions**************************
 
-};
-});
+
+	if($scope.turnNumber>=5){
+		$scope.winner='';
+	
+		if(($scope.turnNumber % 2) !== 0){
+			console.log('checking win conditions for x');
+
+			for(var i = 0; i<$scope.winningCombos.length;i++){
+				if(($scope.xMoves.indexOf($scope.winningCombos[i][0])!==-1)&&($scope.xMoves.indexOf($scope.winningCombos[i][1])!==-1)&&($scope.xMoves.indexOf($scope.winningCombos[i][2])!==-1)){
+					console.log('x wins');
+					$scope.gameOver = true;
+					$scope.winner = 'yeti';
+				}
+			}
+		}
+			else {
+				console.log('checking win conditions for o');
+
+				for(var i = 0; i<$scope.winningCombos.length;i++){
+					if(($scope.oMoves.indexOf($scope.winningCombos[i][0])!==-1)&&($scope.oMoves.indexOf($scope.winningCombos[i][1])!==-1)&&($scope.oMoves.indexOf($scope.winningCombos[i][2])!==-1)){
+					console.log('o wins');
+					$scope.gameOver = true;
+					$scope.winner = 'unicorn';
+					} 
+				} 
+			}
+
+			$scope.turn ++;
+
+} // end $scope.makeMove=function(idx)
+}); // end controller function
