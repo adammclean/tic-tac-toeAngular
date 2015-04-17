@@ -12,9 +12,8 @@ $scope.tie = false;
 $scope.winner = '';
 
 
-$scope.winningCombos = [
-  ['0','3','6'],
-];
+$scope.winningCombos = [['1','2','3'],['4','5','6'],['7','8','9'],['1','4','7'],['2','5','8'],['3','6','9'],['1','5','9'],['3','5','7']];
+
 
 $scope.board = [
 
@@ -25,13 +24,12 @@ $scope.board = [
 ];
 
 $scope.playerMove = function(idx){
-	if(($scope.board[idx]=='x') || ($scope.board[idx]=='o')){
+	if(($scope.board[idx].val=='x') || ($scope.board[idx].val=='o')){
 		return;
 	}
 
 if($scope.turn % 2 !== 0){
-	// $scope.board[idx].choice = 'x';
-	$scope.val = 'x';
+	$scope.board[idx].val = 'x';
 	$scope.board[idx].choice = 'assets/mammoth.png';
 	$scope.xMoves.push(idx);
 	console.log($scope.xMoves);
@@ -39,7 +37,7 @@ if($scope.turn % 2 !== 0){
  
  else{
   // $scope.board[idx].choice = 'o';
-  $scope.val = 'o';
+  $scope.board[idx].val = 'o';
   $scope.board[idx].choice = 'assets/unicorn.png';
   $scope.oMoves.push(idx);
  	console.log($scope.oMoves);
@@ -51,7 +49,7 @@ if($scope.turn % 2 !== 0){
 	if($scope.turnNumber>=5){
 		$scope.winner='';
 	
-		if(($scope.turnNumber % 2) !== 0){
+		if($scope.turnNumber%2!==0){
 			console.log('checking win conditions for x');
 
 			for(var i = 0; i<$scope.winningCombos.length;i++){
