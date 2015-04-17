@@ -1,8 +1,8 @@
-var app = angular.module('ticTacApp', ['firebase']);
+var app = angular.module('ticTacApp', []);
 
-app.controller('ticTacCtrl', function($scope, $firebase){
+app.controller('ticTacCtrl', function($scope){
 
-var ref = new Firebase('https:// .firebaseio.com/')
+
 $scope.turn = 1;
 $scope.xMoves = [];
 $scope.oMoves = [];
@@ -76,5 +76,6 @@ if($scope.turn % 2 !== 0){
 
 			$scope.turn ++;
 
-} // end $scope.makeMove=function(idx)
+} // end check win conditions
+} // end playerMove function
 }); // end controller function
