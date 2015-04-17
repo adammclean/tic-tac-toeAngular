@@ -74,8 +74,14 @@ if($scope.turn % 2 !== 0){
 				} 
 			}
 
-			$scope.turn ++;
+			if($scope.turn==8 && !$scope.winner){
+					$scope.tie=true;
+				}
 
-} // end check win conditions
-} // end playerMove function
+			}//end win condition checker
+			
+			$scope.turn++; //increment turn number
+				
+
+	} // end playermove function
 }); // end controller function
