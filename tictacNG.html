@@ -1,53 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href="styleNG.css">
-	
-	<!-- Angular --> 
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
-	
-	 <!-- jQuery --> 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-
-	<!-- Javascript --> 
-	<script src="tictacNG.js"></script>
-	
-	<!-- Bootstrap --> 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-	
-	<!-- Google Fonts --> 
-	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-
-	<title>T/T/T</title>
+  <link rel="stylesheet" href="styleNG.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+  <script src="tictacNG.js"></script>
+  <title>T/T/T</title>
 </head>
-
 <body ng-app="ticTacApp">
-
-
-
-<div id = 'title'>
-<p>Tic Tac Toe</p>
-</div>
-
+<h1>Tic/Tac/Toe</h1>
 <div id="main">
-	<div ng-controller="ticTacCtrl">
-		
+  <div ng-controller="ticTacCtrl">
 
-		<div id="container">
-			
-			<div ng-repeat="square in board track by $index"
-			     ng-class="{square: true}"
-			     ng-click="playerMove($index)">
-
-			 <img class='playerImg' ng-src='{{square.choice}}'/>
-
-			
-					
-			</div>
-		</div>
-	</div>
-</div> 
+    <div id="container">
+      <div ng-repeat="row in board track by $index">
+        <div class="square" id="row{{ $parent.$index}}column{{ $index }}"
+          ng-repeat="cell in row track by $index" ng-click="makeChoice($parent.$index, $index)">
+          {{ cell == "" ? "&nbsp;" : cell }}
+        </div>
+      </div>
+    </div>
+</div>
+</div>
 
 </body>
 </html>
