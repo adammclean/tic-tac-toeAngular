@@ -51,6 +51,7 @@ function checkWin() {
   }
   // if turnNumber reaches 9 there's been no winner, tie condition is enforced.
   else if ($scope.turnNumber == 9) {
+    alert("Tie Game!");
     console.log("TIE");
   }
 }
@@ -86,9 +87,13 @@ function checkWin() {
     $scope.p2WinTotal++;
   }
 
-  // function clearBoxes() {
-  //   for(i = 0;)
-  // }
+  // function clearBoard() {
+  //   for(i = 0; i<$scope.board.length; i++){
+  //     $scope.board[i].innerHTML='',
+  //   }
+  //   turnNumber=0;
+  //   winner=false;
+  // };
   
 
 });//end of controller
