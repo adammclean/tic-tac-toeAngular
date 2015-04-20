@@ -22,11 +22,12 @@ html body {
   height: 150px;
   display: inline-block;
   border-radius: 15px;
-  font-size: 30px;
+  font-size: 100px;
   color: black;
   /*background-color: #ee6e73;*/
   background-color: #26a69a;
   margin: 1px;
+  text-align: center;
 }
 
 #main #container{
