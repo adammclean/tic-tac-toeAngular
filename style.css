@@ -1,3 +1,8 @@
+html body {
+    background-image: -webkit-gradient(linear,left top,right bottom,color-stop(0,#fff),color-stop(0.25,#fff),color-stop(0.25,beige),color-stop(0.5,beige),color-stop(0.5,#fff),color-stop(0.75,#fff),color-stop(0.75,beige));
+}
+
+
 .cell {
   border: 1px solid orange;
   display: inline-block;
