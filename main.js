@@ -1,5 +1,7 @@
 var app = angular.module('ticTacApp', []);
 
+var getLucky = new Audio('assets/getlucky.mp3');
+
 
 app.controller('ticTacCtrl', function($scope){
 
@@ -80,11 +82,14 @@ function checkWin() {
     alert("X Wins!");
     $scope.turnNumber = 0;
     $scope.p1WinTotal++;
+    getLucky.play();
+
   }
   function p2Wins() {
     alert("O Wins!");
     $scope.turnNumber = 0;
     $scope.p2WinTotal++;
+    getLucky.play();
   }
 
   // function clearBoard() {
