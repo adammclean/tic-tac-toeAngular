@@ -4,12 +4,13 @@ var getLucky = new Audio('assets/getlucky.mp3');
 var danceVid = document.getElementById('dance');
 var dynamicBanner = function bannerChange(){
   document.getElementById('index-banner').text("You got lucky!!");
-}
+};
 
 app.controller('ticTacCtrl', function($scope){
 
+  // tracking by row and column
   $scope.board = [
-  ["", "", ""], 
+  ["", "", ""],
   ["", "", ""],
   ["", "", ""]
 
@@ -17,49 +18,51 @@ app.controller('ticTacCtrl', function($scope){
   
 // function to check if win conditions are met, will run after every turn. When winner is chosen p1/p2 win function is called.
 function checkWin() {
-  for(i = 0; i < 3; i++)
-  // checks if horizontal rows are equal to each other and not equal to an empty string.
-  if($scope.board[i][0] == $scope.board[i][1] && $scope.board[i][2] == $scope.board[i][0] && $scope.board[i][0] !== "" && $scope.board[i][0] == "X"){
-    console.log("X win horizontal");
-    p1Wins();
+  
+    for(i = 0; i < 3; i++)
+    // checks if horizontal rows are equal to each other and not equal to an empty string.
+    if($scope.board[i][0] == $scope.board[i][1] && $scope.board[i][2] == $scope.board[i][0] && $scope.board[i][0] !== "" && $scope.board[i][0] == "X"){
+      console.log("X win horizontal");
+      p1Wins();
+    }
+    else if ($scope.board[i][0] == $scope.board[i][1] && $scope.board[i][2] == $scope.board[i][0] && $scope.board[i][0] !== "" && $scope.board[i][0] == "O"){
+      console.log("O win horizontal");
+      p2Wins();
+    }
+    // checks if vertical columns are equal to each other and not equal to an empty string.
+    else if ($scope.board[0][i] == $scope.board[1][i] && $scope.board[2][i] == $scope.board[0][i] && $scope.board[0][i] !== "" && $scope.board[0][i] == "X") {
+      console.log("X win vertical");
+      p1Wins();
+    }
+    else if ($scope.board[0][i] == $scope.board[1][i] && $scope.board[2][i] == $scope.board[0][i] && $scope.board[0][i] !== "" && $scope.board[0][i] == "O") {
+      console.log("O win vertical");
+      p2Wins();
+    // checks diagonal. only true when i = 0
+    }
+    else if ($scope.board[0][i] == $scope.board[1][i+1] && $scope.board[2][i +2] == $scope.board[0][i] && $scope.board[0][i] !== "" && $scope.board[0][i] == "X") {
+      console.log("X win diagonal right");
+      p1Wins();
+    }
+    else if ($scope.board[0][i] == $scope.board[1][i+1] && $scope.board[2][i +2] == $scope.board[0][i] && $scope.board[0][i] !== "" && $scope.board[0][i] == "O") {
+      console.log("O win diagonal right");
+      p2Wins();
+    }
+    //checks left diagonal. only true when i = 2
+    else if ($scope.board[0][i] == $scope.board[1][i-1] && $scope.board[2][i-2] == $scope.board[0][i] && $scope.board[0][i] !== "" && $scope.board[0][i] == "X") {
+      console.log("X win diagonal left");
+      p1Wins();
+    }
+    else if ($scope.board[0][i] == $scope.board[1][i-1] && $scope.board[2][i-2] == $scope.board[0][i] && $scope.board[0][i] !== "" && $scope.board[0][i] == "O") {
+      console.log("O win diagonal left");
+      p2Wins();
+    }
+    // if turnNumber reaches 9 there's been no winner, tie condition is enforced.
+    else if ($scope.turnNumber == 9) {
+      alert("Tie Game!");
+      console.log("TIE");
+    }
   }
-  else if ($scope.board[i][0] == $scope.board[i][1] && $scope.board[i][2] == $scope.board[i][0] && $scope.board[i][0] !== "" && $scope.board[i][0] == "O"){
-    console.log("O win horizontal");
-    p2Wins();
-  }
-  // checks if vertical columns are equal to each other and not equal to an empty string.
-  else if ($scope.board[0][i] == $scope.board[1][i] && $scope.board[2][i] == $scope.board[0][i] && $scope.board[0][i] !== "" && $scope.board[0][i] == "X") {
-    console.log("X win vertical");
-    p1Wins();
-  }
-  else if ($scope.board[0][i] == $scope.board[1][i] && $scope.board[2][i] == $scope.board[0][i] && $scope.board[0][i] !== "" && $scope.board[0][i] == "O") {
-    console.log("O win vertical");
-    p2Wins();
-  // checks diagonal. only true when i = 0
-  }
-  else if ($scope.board[0][i] == $scope.board[1][i+1] && $scope.board[2][i +2] == $scope.board[0][i] && $scope.board[0][i] !== "" && $scope.board[0][i] == "X") {
-    console.log("X win diagonal right");
-    p1Wins();
-  }
-  else if ($scope.board[0][i] == $scope.board[1][i+1] && $scope.board[2][i +2] == $scope.board[0][i] && $scope.board[0][i] !== "" && $scope.board[0][i] == "O") {
-    console.log("O win diagonal right");
-    p2Wins();
-  }
-  //checks left diagonal. only true when i = 2
-  else if ($scope.board[0][i] == $scope.board[1][i-1] && $scope.board[2][i-2] == $scope.board[0][i] && $scope.board[0][i] !== "" && $scope.board[0][i] == "X") {
-    console.log("X win diagonal left");
-    p1Wins();
-  }
-  else if ($scope.board[0][i] == $scope.board[1][i-1] && $scope.board[2][i-2] == $scope.board[0][i] && $scope.board[0][i] !== "" && $scope.board[0][i] == "O") {
-    console.log("O win diagonal left");
-    p2Wins();
-  }
-  // if turnNumber reaches 9 there's been no winner, tie condition is enforced.
-  else if ($scope.turnNumber == 9) {
-    alert("Tie Game!");
-    console.log("TIE");
-  }
-}
+
   // creates turnNumber property, will get incremented after every turn.
   $scope.turnNumber = 0;
 
@@ -81,11 +84,14 @@ function checkWin() {
   $scope.p1WinTotal = 0;
   $scope.p2WinTotal = 0;
 
+ 
+
   function p1Wins() {
     alert("X Wins!");
     $scope.turnNumber = 0;
     $scope.p1WinTotal++;
     getLucky.play();
+    clearBoard();
     dynamicBanner;
     $("#danceVideo").css("display", "block");
 
@@ -97,18 +103,19 @@ function checkWin() {
     $scope.turnNumber = 0;
     $scope.p2WinTotal++;
     getLucky.play();
+    clearBoard();
     dynamicBanner;
     $("#danceVideo").css("display", "block");
   }
 
-  // function clearBoard() {
-  //   for(i = 0; i<$scope.board.length; i++){
-  //     $scope.board[i].innerHTML='',
-  //   }
-  //   turnNumber=0;
-  //   winner=false;
-  // };
-  
+   function clearBoard(){
+    for(var i=0; i<$scope.board[row][column].length; i++){
+      mySquares[i].innerHTML = '&nbsp';
+    }
+    turnNumber = 0;   
+  }
+
+
 
 });//end of controller
 
