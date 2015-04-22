@@ -87,7 +87,7 @@ function checkWin() {
     $scope.p1WinTotal++;
     getLucky.play();
     dynamicBanner;
-    danceVid.style.display = "block";
+    $("#danceVideo").css("display", "block");
 
 
 
@@ -98,8 +98,7 @@ function checkWin() {
     $scope.p2WinTotal++;
     getLucky.play();
     dynamicBanner;
-    danceVid.style.display = "block";
-
+    $("#danceVideo").css("display", "block");
   }
 
   // function clearBoard() {
@@ -112,3 +111,4 @@ function checkWin() {
   
 
 });//end of controller
+
